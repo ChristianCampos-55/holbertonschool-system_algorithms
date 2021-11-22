@@ -29,8 +29,7 @@ vertex_t *index_getter(const graph_t *graph, size_t index)
 			return (n);
 		}
 		n = n->next;
-    }
-
+	}
 	return (NULL);
 }
 
@@ -45,8 +44,8 @@ vertex_t *index_getter(const graph_t *graph, size_t index)
  * Return: Depth of current vertex or 0 upon failure
  */
 
-void depth_traverser(int vertex, size_t *checked, size_t curr_depth, size_t *depth,
-	      const graph_t *graph, void (*action) (const vertex_t *v,
+void depth_traverser(int vertex, size_t *checked, size_t curr_depth,
+		size_t *depth, const graph_t *graph, void (*action) (const vertex_t *v,
 						     size_t curr_depth))
 {
 	vertex_t *d, *current;
@@ -89,6 +88,7 @@ size_t depth_first_traverse(const graph_t *graph,
 	vertex_t *current;
 
 	size_t depth = 0;
+
 	if (graph != NULL)
 	{
 		checked = calloc(graph->nb_vertices, sizeof(size_t));

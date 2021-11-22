@@ -32,5 +32,4 @@ void graph_delete(graph_t *graph)
 
 	free(graph);
 	graph = NULL;
-
 }
