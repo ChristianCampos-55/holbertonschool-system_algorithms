@@ -20,5 +20,8 @@ symbol_t *symbol_create(char data, size_t freq);
 heap_t *huffman_priority_queue(char *data, size_t *freq, size_t size);
 int freq_cmp(void *data1, void *data2);
 int huffman_extract_and_insert(heap_t *priority_queue);
+binary_tree_node_t *huffman_tree(char *data, size_t *freq, size_t size);
+int huffman_codes(char *data, size_t *freq, size_t size);
+void print_h_c(binary_tree_node_t *h_tree, unsigned long coord);
 
 #endif
