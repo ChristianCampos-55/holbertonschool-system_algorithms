@@ -51,7 +51,7 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 
 /**
  * swap - swaps a number to a chosen base
- * @num: number to swap
+ * n: number to swap
  * @base: base to swap to
  * Return: swapped number
  */
