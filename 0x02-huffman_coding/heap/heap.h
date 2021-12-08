@@ -42,5 +42,7 @@ heap_t *heap_create(int (*data_cmp)(void *, void *));
 char *swap(long num, long base);
 void *heap_extract(heap_t *heap);
 void restore_heap(heap_t *h);
+void rec_free(binary_tree_node_t *node, void (*free_data)(void *));
+void heap_delete(heap_t *heap, void (*free_data)(void *));
 
 #endif /* _HEAP_H_ */
