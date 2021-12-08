@@ -3,12 +3,12 @@
 /**
  * heap_extract - extracts the root value of a Min Binary Heap
  * @heap: heap
- * Return: extracted info
+ * Return: extracted datao
  */
 void *heap_extract(heap_t *heap)
 {
 	binary_tree_node_t *node;
-	void *inf;
+	void *data;
 	size_t b;
 
 
@@ -18,14 +18,14 @@ void *heap_extract(heap_t *heap)
 	if (!heap->root)
 		return (NULL);
 
-	inf = heap->root->inf;
+	data = heap->root->data;
 
 	if (heap->size == 1)
 	{
 		free(heap->root);
 		heap->root = NULL;
 		heap->size--;
-		return (inf);
+		return (data);
 	}
 
 	for (b = 1; b <= heap->size; b <<= 1)
@@ -35,7 +35,7 @@ void *heap_extract(heap_t *heap)
 	for (node = heap->root; b > 0; b >>= 1)
 		node = heap->size & b ? node->right : node->left;
 
-	heap->root->inf = node->inf;
+	heap->root->data = node->data;
 
 	if (node->parent->left == node)
 		node->parent->left = NULL;
@@ -45,7 +45,7 @@ void *heap_extract(heap_t *heap)
 
 	free(node);
 	restore_heap(heap);
-	return (inf);
+	return (data);
 }
 
 /**
