@@ -10,7 +10,7 @@
 binary_tree_node_t *binary_tree_node(binary_tree_node_t *parent, void *data)
 {
 	binary_tree_node_t *n;
-    n = malloc(sizeof(binary_tree_node_t));
+	n = malloc(sizeof(binary_tree_node_t));
 
 	if (!n)
 		return (NULL);

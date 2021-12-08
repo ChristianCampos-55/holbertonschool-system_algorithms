@@ -61,17 +61,15 @@ char *swap(long n, long base)
 	static char buf[66];
 	short min = n < 0 ? 1 : 0;
 	char *loc = "0123456789ABCDEFG";
-    char *root;
+	char *root;
 
 	root = &buf[sizeof(buf)];
 	*--root = 0;
 
-	do 
-    {
+	do {
 		*--root = loc[STRINGCONS(n % base)];
 		n /= base;
-	} 
-    while (n);
+	} while (n);
 
 	if (min)
 		*--root = '-';
