@@ -22,6 +22,7 @@ queue_t *dijkstra_graph(graph_t *graph, vertex_t const *start,
 	ssize_t d = -1;
 	vertex_t *ap;
 	edge_t *ed;
+    char *str;
 
 	if (!graph || !start || !target || !p)
 		return (NULL);
