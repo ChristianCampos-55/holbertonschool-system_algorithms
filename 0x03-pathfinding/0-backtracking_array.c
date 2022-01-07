@@ -30,7 +30,7 @@ int rec_worker(char **map, int rows, int cols, point_t const *target,
 		exit(1);
 	}
 
-    closet_monk->x = x;
+	closet_monk->x = x;
 	closet_monk->y = y;
 	queue_push_front(arr, closet_monk);
 	printf("Checking coordinates [%d, %d]\n", x, y);
@@ -63,7 +63,7 @@ queue_t *backtracking_array(char **map, int rows, int cols,
 	point_t const *start, point_t const *target)
 {
 	queue_t *arr = queue_create();
-    queue_t *rra = queue_create();
+	queue_t *rra = queue_create();
 	char **clone;
 	int i;
 	point_t *closet_monk;
@@ -72,13 +72,11 @@ queue_t *backtracking_array(char **map, int rows, int cols,
 	{
 		return (NULL);
 	}
-
 	clone = malloc(rows * sizeof(char *));
 	if (!clone)
 	{
 		exit(1);
 	}
-
 	for (i = 0; i < rows; i++)
 	{
 		clone[i] = malloc(cols + 1);
@@ -86,13 +84,10 @@ queue_t *backtracking_array(char **map, int rows, int cols,
 			exit(1);
 		strcpy(clone[i], map[i]);
 	}
-
 	if (rec_worker(clone, rows, cols, target, start->x, start->y, arr))
 	{
 		while ((closet_monk = dequeue(arr)))
-		{
 			queue_push_front(rra, closet_monk);
-		}
 		free(arr);
 	}
 	else
@@ -101,12 +96,10 @@ queue_t *backtracking_array(char **map, int rows, int cols,
 		free(rra);
 		rra = NULL;
 	}
-
 	for (i = 0; i < rows; i++)
 	{
 		free(clone[i]);
 	}
-
 	free(clone);
 	return (rra);
 }
