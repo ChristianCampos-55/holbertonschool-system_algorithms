@@ -9,6 +9,18 @@
 #include <string.h>
 #include <math.h>
 
+#define STRDUP(x) ((str = strdup(x)) ? str : (exit(1), NULL))
+#define H(a) ((int)sqrt(pow((a->x - target->x), 2) + \
+	pow((a->y - target->y), 2)))
+
+#define ALLOCATE_ALL \
+	do { \
+		dists = calloc(graph->nb_vertices, sizeof(*dists)); \
+		fists = calloc(graph->nb_vertices, sizeof(*fists)); \
+		from = calloc(graph->nb_vertices, sizeof(*from)); \
+		verts = calloc(graph->nb_vertices, sizeof(*verts)); \
+	} while (0)
+
 /**
  * struct point_s - Structure storing coordinates
  *
@@ -27,6 +39,8 @@ queue_t *backtracking_array(char **map, int rows, int cols,
 queue_t *backtracking_graph(graph_t *graph, vertex_t const *start,
 	vertex_t const *target);
 queue_t *dijkstra_graph(graph_t *graph, vertex_t const *start,
+	vertex_t const *target);
+queue_t *a_star_graph(graph_t *graph, vertex_t const *start,
 	vertex_t const *target);
 
 #endif
