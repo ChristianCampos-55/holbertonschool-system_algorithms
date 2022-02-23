@@ -4,9 +4,8 @@
 * act_trav - function that goes through an N-ary tree, node by node.
 * @root: pointer to the root node of the tree to traverse
 * @action:  pointer to a function to execute for each node being traversed
-* @node: pointer to the node being traversed
 * @depth: depth of the node being traversed
-* Return: biggest depth of the tree 
+* Return: biggest depth of the tree
 */
 
 size_t act_trav(nary_tree_t const *root, void
@@ -34,9 +33,7 @@ size_t act_trav(nary_tree_t const *root, void
 * act_trav - function that goes through an N-ary tree, node by node.
 * @root: pointer to the root node of the tree to traverse
 * @action:  pointer to a function to execute for each node being traversed
-* @node: pointer to the node being traversed
-* @depth: depth of the node being traversed
-* Return: biggest depth of the tree 
+* Return: biggest depth of the tree
 */
 
 size_t nary_tree_traverse(nary_tree_t const *root,
